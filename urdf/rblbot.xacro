@@ -1,0 +1,788 @@
+<?xml version="1.0" ?>
+<robot name="rblbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find rblbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find rblbot_description)/urdf/rblbot.trans" />
+<xacro:include filename="$(find rblbot_description)/urdf/rblbot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-4.990962486544665e-17 1.6969272454251859e-16 0.0424515688843622"/>
+    <mass value="0.8940576877913379"/>
+    <inertia ixx="0.000797" ixy="-0.0" ixz="-0.0" iyy="0.001653" iyz="0.0" izz="0.002359"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_gearbox_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.01340885989703354 -0.009213108094018131 0.01125049043677315"/>
+    <mass value="0.036388730782146946"/>
+    <inertia ixx="4e-06" ixy="-0.0" ixz="0.0" iyy="1e-05" iyz="-0.0" izz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.035 0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.035 0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_gearbox_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.013408859897033519 -0.009213108094018117 0.01125049043677288"/>
+    <mass value="0.036388730782146925"/>
+    <inertia ixx="4e-06" ixy="0.0" ixz="-0.0" iyy="1e-05" iyz="-0.0" izz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.035 0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.035 0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_gearbox_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.013408859897033429 0.00921310809401829 0.01125049043677315"/>
+    <mass value="0.03638873078214622"/>
+    <inertia ixx="4e-06" ixy="0.0" ixz="0.0" iyy="1e-05" iyz="0.0" izz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.035 -0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.035 -0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_gearbox_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.013408859897033588 0.00921310809401829 0.011250490436773137"/>
+    <mass value="0.03638873078214621"/>
+    <inertia ixx="4e-06" ixy="-0.0" ixz="-0.0" iyy="1e-05" iyz="0.0" izz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.035 -0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.035 -0.035 -0.021254"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_gearbox_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rim_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.431504657496533e-07 0.01723522121543517 1.528510742393463e-06"/>
+    <mass value="0.057601062843890743"/>
+    <inertia ixx="1.1e-05" ixy="-0.0" ixz="-0.0" iyy="1.5e-05" iyz="-0.0" izz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 -0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 -0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rim_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-5.308282542484943e-07 0.017235253379376862 1.5308276020142841e-06"/>
+    <mass value="0.05760056271807261"/>
+    <inertia ixx="1.1e-05" ixy="0.0" ixz="0.0" iyy="1.5e-05" iyz="-0.0" izz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 -0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 -0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rim_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-5.333467370249867e-07 -0.017235232337285834 1.5189048271357919e-06"/>
+    <mass value="0.05760100700095268"/>
+    <inertia ixx="1.1e-05" ixy="-0.0" ixz="0.0" iyy="1.5e-05" iyz="0.0" izz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rim_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.277947178958242e-07 -0.017235229735062065 1.5172354681236566e-06"/>
+    <mass value="0.05760099381812663"/>
+    <inertia ixx="1.1e-05" ixy="0.0" ixz="-0.0" iyy="1.5e-05" iyz="0.0" izz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 0.05496 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_rim_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_tyre_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-6.333185732787516e-09 -0.011497105646493276 4.780255147621149e-07"/>
+    <mass value="0.19800736883970116"/>
+    <inertia ixx="9.2e-05" ixy="0.0" ixz="-0.0" iyy="0.000156" iyz="0.0" izz="9.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_shaft_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.653494587562705e-14 -0.012421126037396313 4.904363563110192e-07"/>
+    <mass value="0.005108425148768522"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.006993941257278258 6.938893903907228e-18 4.904367730540482e-07"/>
+    <mass value="0.033345486553475974"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.023 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.023 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_cap_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0025819066186538618 5.692937055240543e-07 4.38527422291779e-08"/>
+    <mass value="0.009229497133387199"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.009 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.009 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_tip_fr_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0004472849403307339 -9.020562075079397e-17 4.904369516056661e-07"/>
+    <mass value="1.2182982002202539e-05"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.003 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.003 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_tyre_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="6.319786978459252e-09 -0.011497105494106562 4.780324032657712e-07"/>
+    <mass value="0.19800720613745246"/>
+    <inertia ixx="9.2e-05" ixy="-0.0" ixz="0.0" iyy="0.000156" iyz="0.0" izz="9.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_shaft_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-8.663209039028175e-14 -0.012421126037396417 4.904363561791802e-07"/>
+    <mass value="0.00510842514876852"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.006993941257278247 -5.551115123125783e-17 4.904367718674973e-07"/>
+    <mass value="0.03334548655347591"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="-0.0" iyy="2e-06" iyz="-0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.023 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.023 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_cap_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0025819079075134694 6.06989668062996e-07 2.10554394128315e-08"/>
+    <mass value="0.009229413055020544"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.009 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.009 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_tip_br_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00044728494033071525 -9.020562075079397e-17 4.904367695290901e-07"/>
+    <mass value="1.2182982002203211e-05"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.003 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.003 0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_tyre_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.796012768535583e-09 0.011497105646392718 4.890532582166318e-07"/>
+    <mass value="0.19800735518744314"/>
+    <inertia ixx="9.2e-05" ixy="0.0" ixz="0.0" iyy="0.000156" iyz="-0.0" izz="9.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 -0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 -0.05866 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_shaft_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-8.663209039028175e-14 0.012421126037396556 4.904363562138747e-07"/>
+    <mass value="0.00510842514876852"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.06 -0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.06 -0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.006993941257278247 2.498001805406602e-16 4.904367719230085e-07"/>
+    <mass value="0.03334548655347597"/>
+    <inertia ixx="2e-06" ixy="-0.0" ixz="-0.0" iyy="2e-06" iyz="0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.023 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.023 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_cap_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.002581906618653861 -5.692937053852765e-07 4.3852742062644445e-08"/>
+    <mass value="0.009229497133387197"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.009 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.009 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_tip_bl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00044728494033072566 2.7755575615628914e-16 4.904367695776624e-07"/>
+    <mass value="1.2182982002203225e-05"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.003 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.003 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_tyre_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.7957009207657535e-09 0.012997105495241093 4.890534188242701e-07"/>
+    <mass value="0.19800735756395382"/>
+    <inertia ixx="9.2e-05" ixy="-0.0" ixz="-0.0" iyy="0.000156" iyz="-0.0" izz="9.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 -0.05766 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 -0.05766 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/wheel_tyre_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_shaft_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.653494587562705e-14 0.012421126037396459 4.90436356130608e-07"/>
+    <mass value="0.005108425148768522"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.06 -0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.06 -0.035 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_shaft_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.006993941257278279 1.6653345369377348e-16 4.904367728805759e-07"/>
+    <mass value="0.03334548655347598"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.023 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.023 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_cap_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.002581907907513497 -6.069896679172793e-07 2.1055439454464864e-08"/>
+    <mass value="0.009229413055020544"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.009 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.009 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_cap_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_tip_fl_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.00044728494033074474 1.8735013540549517e-16 4.904369514321938e-07"/>
+    <mass value="1.2182982002202539e-05"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.003 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.003 -0.04422 -0.032504"/>
+    <geometry>
+      <mesh filename="package://rblbot_description/meshes/motor_tip_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid1" type="fixed">
+  <origin rpy="0 0 0" xyz="0.035 -0.035 0.021254"/>
+  <parent link="base_link"/>
+  <child link="motor_gearbox_fr_1"/>
+</joint>
+
+<joint name="Rigid2" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.035 -0.035 0.021254"/>
+  <parent link="base_link"/>
+  <child link="motor_gearbox_br_1"/>
+</joint>
+
+<joint name="Rigid3" type="fixed">
+  <origin rpy="0 0 0" xyz="0.035 0.035 0.021254"/>
+  <parent link="base_link"/>
+  <child link="motor_gearbox_fl_1"/>
+</joint>
+
+<joint name="Rigid4" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.035 0.035 0.021254"/>
+  <parent link="base_link"/>
+  <child link="motor_gearbox_bl_1"/>
+</joint>
+
+<joint name="motor_joint_bl" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.01996 0.0"/>
+  <parent link="motor_shaft_bl_1"/>
+  <child link="wheel_rim_bl_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="motor_joint_fl" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.01996 0.0"/>
+  <parent link="motor_shaft_fl_1"/>
+  <child link="wheel_rim_fl_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="motor_joint_fr" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.01996 0.0"/>
+  <parent link="motor_shaft_fr_1"/>
+  <child link="wheel_rim_fr_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="motor_joint_br" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.01996 0.0"/>
+  <parent link="motor_shaft_br_1"/>
+  <child link="wheel_rim_br_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid9" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.0037 0.0"/>
+  <parent link="wheel_rim_fr_1"/>
+  <child link="wheel_tyre_fr_1"/>
+</joint>
+
+<joint name="Rigid10" type="fixed">
+  <origin rpy="0 0 0" xyz="0.025 0.0 0.01125"/>
+  <parent link="motor_gearbox_fr_1"/>
+  <child link="motor_shaft_fr_1"/>
+</joint>
+
+<joint name="Rigid11" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.012 -0.00922 0.01125"/>
+  <parent link="motor_gearbox_fr_1"/>
+  <child link="motor_fr_1"/>
+</joint>
+
+<joint name="Rigid12" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.014 0.0 0.0"/>
+  <parent link="motor_fr_1"/>
+  <child link="motor_cap_fr_1"/>
+</joint>
+
+<joint name="Rigid13" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.006 0.0 0.0"/>
+  <parent link="motor_cap_fr_1"/>
+  <child link="motor_tip_fr_1"/>
+</joint>
+
+<joint name="Rigid14" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.0037 0.0"/>
+  <parent link="wheel_rim_br_1"/>
+  <child link="wheel_tyre_br_1"/>
+</joint>
+
+<joint name="Rigid15" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.025 0.0 0.01125"/>
+  <parent link="motor_gearbox_br_1"/>
+  <child link="motor_shaft_br_1"/>
+</joint>
+
+<joint name="Rigid16" type="fixed">
+  <origin rpy="0 0 0" xyz="0.012 -0.00922 0.01125"/>
+  <parent link="motor_gearbox_br_1"/>
+  <child link="motor_br_1"/>
+</joint>
+
+<joint name="Rigid17" type="fixed">
+  <origin rpy="0 0 0" xyz="0.014 0.0 0.0"/>
+  <parent link="motor_br_1"/>
+  <child link="motor_cap_br_1"/>
+</joint>
+
+<joint name="Rigid18" type="fixed">
+  <origin rpy="0 0 0" xyz="0.006 0.0 0.0"/>
+  <parent link="motor_cap_br_1"/>
+  <child link="motor_tip_br_1"/>
+</joint>
+
+<joint name="Rigid19" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0037 0.0"/>
+  <parent link="wheel_rim_bl_1"/>
+  <child link="wheel_tyre_bl_1"/>
+</joint>
+
+<joint name="Rigid20" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.025 0.0 0.01125"/>
+  <parent link="motor_gearbox_bl_1"/>
+  <child link="motor_shaft_bl_1"/>
+</joint>
+
+<joint name="Rigid21" type="fixed">
+  <origin rpy="0 0 0" xyz="0.012 0.00922 0.01125"/>
+  <parent link="motor_gearbox_bl_1"/>
+  <child link="motor_bl_1"/>
+</joint>
+
+<joint name="Rigid22" type="fixed">
+  <origin rpy="0 0 0" xyz="0.014 0.0 0.0"/>
+  <parent link="motor_bl_1"/>
+  <child link="motor_cap_bl_1"/>
+</joint>
+
+<joint name="Rigid23" type="fixed">
+  <origin rpy="0 0 0" xyz="0.006 0.0 0.0"/>
+  <parent link="motor_cap_bl_1"/>
+  <child link="motor_tip_bl_1"/>
+</joint>
+
+<joint name="Rigid24" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0027 0.0"/>
+  <parent link="wheel_rim_fl_1"/>
+  <child link="wheel_tyre_fl_1"/>
+</joint>
+
+<joint name="Rigid25" type="fixed">
+  <origin rpy="0 0 0" xyz="0.025 0.0 0.01125"/>
+  <parent link="motor_gearbox_fl_1"/>
+  <child link="motor_shaft_fl_1"/>
+</joint>
+
+<joint name="Rigid26" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.012 0.00922 0.01125"/>
+  <parent link="motor_gearbox_fl_1"/>
+  <child link="motor_fl_1"/>
+</joint>
+
+<joint name="Rigid27" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.014 0.0 0.0"/>
+  <parent link="motor_fl_1"/>
+  <child link="motor_cap_fl_1"/>
+</joint>
+
+<joint name="Rigid28" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.006 0.0 0.0"/>
+  <parent link="motor_cap_fl_1"/>
+  <child link="motor_tip_fl_1"/>
+</joint>
+
+</robot>
