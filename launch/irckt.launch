@@ -1,13 +1,24 @@
+<?xml version="1.0" ?>
+
 <launch>
+  
   <param command="$(find xacro)/xacro $(find rblbot_description)/urdf/rblbot.xacro" name="robot_description"/>
-  <node args="-param robot_description -urdf -model rblbot" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+  
+  <node args="-param robot_description -urdf -model rblbot -x -0.66 -y 0.64 -z 0.004" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+  
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
+    <arg name="world_name" value="$(find rblbot_description)/worlds/irckt_areana.world"/>
   </include>
+
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <!-- You can launch your nodes here if you wish -->
+  <!-- <node pkg="rblbot_description" type="ui002.py" name="UI_002"/> -->
+
 </launch>

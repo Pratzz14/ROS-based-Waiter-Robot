@@ -28,7 +28,7 @@
     <robotBaseFrame>base_link</robotBaseFrame>
     <torque>5</torque>
     <topicName>/cmd_vel</topicName>
-    <broadcastTF>false</broadcastTF>
+    <broadcastTF>true</broadcastTF>
   </plugin>
 </gazebo>
 
