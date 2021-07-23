@@ -19,6 +19,6 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
   <!-- You can launch your nodes here if you wish -->
-  <!-- <node pkg="rblbot_description" type="ui002.py" name="UI_002"/> -->
+  <!-- <node pkg="rblbot_description" type="t3_2.py" name="UI_for_BOT"/> -->
 
 </launch>
